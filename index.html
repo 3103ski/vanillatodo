@@ -3,9 +3,30 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>Todo List</title>
+		<link rel="stylesheet" href="/css/style.css" />
 	</head>
 	<body>
-		<h1>iwjehfgivpew</h1>
+		<div class="main-container">
+			<div class="header-container">
+				<div class="todo-input-container">
+					<div>
+						<label for="todoInput">New Task</label>
+						<input type="text" id="todoInput" />
+					</div>
+					<button class="btn" id="addTodoBtn">Add Item</button>
+				</div>
+			</div>
+			<div class="content-container">
+				<div class="todo-list">
+					<div class="todo-item">
+						<p>Some task to be done</p>
+						<div class="complete-box"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="/js/customjs.js"></script>
 	</body>
 </html>
