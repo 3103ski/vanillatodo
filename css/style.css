@@ -22,7 +22,7 @@
   font-family: "Ariel", sans-serif;
   letter-spacing: 0.13rem;
   height: 300px;
-  background-color: #8f0541;
+  background-color: #4b4b4b;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,11 +83,21 @@
   margin-left: auto;
   width: 1rem;
   height: 1rem;
-  border: solid 1px #8f0541;
+  border: solid 1px #4b4b4b;
   border-radius: 2px;
 }
 .main-container .content-container .todo-list .todo-item .complete-box:hover {
   cursor: pointer;
+}
+.main-container .content-container .todo-list .todo-item .completeBox {
+  content: "X";
+}
+.main-container .content-container .todo-list .todo-item .incompleteBox {
+  background-color: #d3d1d1;
+}
+.main-container .content-container .todo-list .completed-todo {
+  background-color: #e7e7e7;
+  color: #cccccc;
 }
 
 /*# sourceMappingURL=style.css.map */

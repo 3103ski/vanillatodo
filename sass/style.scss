@@ -11,11 +11,12 @@ $secondary-radius: 7px;
 $font-size-mid: 1.3rem;
 $header-height: 300px;
 $content-height: calc(100vh - 300px);
+
 //Colors
 $primary-shade-dark: rgb(40, 40, 40);
 $primary-shade-light: rgb(190, 190, 190);
 $primary-color-light: rgb(216, 237, 140);
-$primary-color-dark: rgb(143, 5, 65);
+$primary-color-dark: rgb(75, 75, 75);
 $secondary-color-dark: rgb(23, 176, 92);
 
 // Utility Classes
@@ -106,6 +107,18 @@ $secondary-color-dark: rgb(23, 176, 92);
 						cursor: pointer;
 					}
 				}
+
+				.completeBox {
+					content: 'X';
+				}
+
+				.incompleteBox {
+					background-color: rgb(211, 209, 209);
+				}
+			}
+			.completed-todo {
+				background-color: #e7e7e7;
+				color: #cccccc;
 			}
 		}
 	}
