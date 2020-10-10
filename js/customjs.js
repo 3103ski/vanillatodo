@@ -20,14 +20,16 @@ document.addEventListener('keydown', function (e) {
 document.addEventListener('click', (e) => {
 	let parent = e.target.parentElement;
 	let targ = e.target;
-	if (parent.classList.contains('todo-item') && targ.classList.contains('complete-box')) {
-		newCompletion(parent.id);
+	if (parent.classList.contains('todo-item') && targ.classList.contains('complete-icon')) {
+		completeToggle(parent.id);
 	}
 });
 
 // would be server array of objects
-var todos = [];
-
+let todos = [];
+if (localStorage.getItem('todos')) {
+	todos = localStorage.getItem('todos');
+}
 // ____________________
 // utility functions
 //---------------------
@@ -57,6 +59,8 @@ function createTodo(note) {
 	if (todoInput.value != '') {
 		const newTodo = new Todo(note);
 		todos.push(newTodo);
+		localStorage.removeItem(todos);
+		localStorage.setItem(todos);
 		renderTodos();
 	}
 }
@@ -71,31 +75,39 @@ function getTodoIndex(id) {
 	return index;
 }
 
-function newCompletion(id) {
+function completeToggle(id) {
 	let index = getTodoIndex(id);
+	let el = document.getElementById(id);
 	if (todos[index].completed == false) {
 		todos[index].completed = true;
+		el.getElementsByTagName('p')[0].style.textDecoration = 'line-through';
 	} else {
 		todos[index].completed = false;
 	}
 	renderTodos();
 }
-// todos = [new Todo('some stuf'), new Todo('even more'), new Todo('sort them all')];
+
+todos = [new Todo('some stuf'), new Todo('even more'), new Todo('sort them all')];
 
 function renderTodos() {
 	todoList.innerHTML = '';
+
+	// separate completed from incompleted on list
 	todos.sort((a, b) => (a.completed > b.completed ? 1 : -1));
+
+	// print todo template for all todos
 	for (let i = 0; i < todos.length; i++) {
 		let todo = todos[i];
-		let statusClass = todo.completed ? 'completeBox' : 'incompleteBox';
-		let completedStyle = todo.completed ? 'completed-todo' : '';
-		let todoTemplate = `
-            <div class="todo-item ${completedStyle}" id='${todo.id}'>
+		let todoClasses = todo.completed ? 'completed-todo todo-item ' : 'todo-item ';
+		let todoIconClasses = todo.completed ? 'fa-check-circle completeBox' : 'fa-circle incompleteBox';
+
+		let newTodo = `
+            <div class="${todoClasses}" id='${todo.id}'>
                 <p>${todo.note}</p>
-                <div class="complete-box ${statusClass}"></div>
+				<i class="complete-icon far ${todoIconClasses}"></i>
             </div>
         `;
-		todoList.insertAdjacentHTML('beforeend', todoTemplate);
+		todoList.insertAdjacentHTML('beforeend', newTodo);
 	}
 	todoInput.value = ``;
 }

@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Roboto", sans-serif;
 }
 
 .btn {
@@ -11,7 +12,7 @@
 }
 
 .light {
-  background-color: #d8ed8c;
+  background-color: rgba(140, 174, 237, 0.582);
   color: #282828;
 }
 
@@ -66,38 +67,33 @@
 }
 .main-container .content-container .todo-list {
   margin: 20px auto;
-  padding: 30px;
-  border: solid 1px #bebebe;
+  padding: 10px;
+  border: solid 1px #eee8e8;
   width: 75%;
   min-width: 400px;
   border-radius: 7px;
 }
 .main-container .content-container .todo-list .todo-item {
-  background-color: #d8ed8c;
+  background-color: rgba(140, 174, 237, 0.582);
   padding: 0.6rem 1.5rem;
   border-radius: 7px;
   display: flex;
   margin: 3px 0;
 }
-.main-container .content-container .todo-list .todo-item .complete-box {
+.main-container .content-container .todo-list .todo-item .complete-icon {
   margin-left: auto;
-  width: 1rem;
-  height: 1rem;
-  border: solid 1px #4b4b4b;
-  border-radius: 2px;
+  font-size: 1.2rem;
+  color: #4b4b4b;
 }
-.main-container .content-container .todo-list .todo-item .complete-box:hover {
+.main-container .content-container .todo-list .todo-item .complete-icon:hover {
   cursor: pointer;
-}
-.main-container .content-container .todo-list .todo-item .completeBox {
-  content: "X";
-}
-.main-container .content-container .todo-list .todo-item .incompleteBox {
-  background-color: #d3d1d1;
 }
 .main-container .content-container .todo-list .completed-todo {
   background-color: #e7e7e7;
   color: #cccccc;
+}
+.main-container .content-container .todo-list .completed-todo p {
+  text-decoration: line-through;
 }
 
 /*# sourceMappingURL=style.css.map */
